@@ -66,30 +66,36 @@
 
 
 
-
+1a.
 USE sakila;
 select * from actor;
 SELECT first_name, last_name
 FROM actor;
 
+1b.
 SELECT UPPER(CONCAT(first_name, ' ', last_name)) AS `Actor Name`
   FROM actor;
-  
+
+2a.
 SELECT first_name, last_name, actor_id
   FROM actor
   WHERE first_name = "Joe";
 
+2b.
 SELECT first_name, last_name, actor_id
   FROM actor
   WHERE last_name LIKE '%GEN%';
-  
- SELECT country_id, country
+
+2c.
+SELECT country_id, country
   FROM country
   WHERE country;
   
+2d.
 ALTER TABLE actor
   ADD COLUMN middle_name varchar(40) AFTER first_name;
   
+3a.
 ALTER TABLE actor
   MODIFY COLUMN middle_name blob;
   
@@ -100,12 +106,7 @@ SELECT last_name, count(last_name) AS 'last_name_frequency'
   FROM actor
   GROUP BY last_name
   HAVING `last_name_frequency` >= 2;
-  
-SELECT last_name, count(last_name) AS 'last_name_frequency'
-  FROM actor
-  GROUP BY last_name
-  Having `last_name_frequency` >= 2;
-  
+    
 UPDATE actor
   SET first_name = 'HARPO'
   WHERE first_name = 'GROUCHO'
